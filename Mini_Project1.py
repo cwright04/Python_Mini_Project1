@@ -52,14 +52,21 @@ for a_tuple in friends_tup:
     first_tuple_elements2.append(a_tuple[1])
 
 
+num_states = {}
+
 for i in range(0, len(first_tuple_elements)):
     check = first_tuple_elements[i]
-    for key in state_lookup:
-        if check == key:
-            print(first_tuple_elements2[i],":",first_tuple_elements[i],",", 
-                  state_lookup[key])
-        
-        
+    state = state_lookup[check]
+    print(first_tuple_elements2[i],":",first_tuple_elements[i],",", 
+                  state)
+    if state not in num_states:
+        num_states[state] = 1
+    else:
+        num_states[state] += 1
+
+print("\nNumber of states the friends are from")
+for key in num_states:
+    print(key + ": " + str(num_states[key]))       
         
         
         
